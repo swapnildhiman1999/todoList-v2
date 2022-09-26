@@ -1,0 +1,30 @@
+<%- include("header") -%>
+
+<div class="box" id="heading">
+  <h1> <%= listTitle %> </h1>
+</div>
+
+<div class="box">
+
+  <%   newListItems.forEach(function(item){ %>
+  <form  action="/delete" method="post">
+    <!-- We need to delete the element from todolist once we click on checkbox -->
+     <div class="item">
+      <!-- On change tells that on clicking checkbox it will also act as submit button -->
+      <input type="checkbox" name="checkbox" value= "<%= item._id %>" onChange="this.form.submit()">
+      <p> <%= item.name  %> </p>
+      </div>
+      <!-- Adding this for making delete functionality to generic list -->
+      <input type="hidden" name="listName" value="<%= listTitle %>"></input>
+  </form>
+  <% });  %>
+
+
+
+  <form class="item" action="/" method="post">
+    <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+    <button type="submit" value="<%= listTitle %>" name="list">+</button>
+  </form>
+</div>
+
+<%- include("footer") -%>
