@@ -15,7 +15,8 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(express.static("public"));
 
-mongoose.connect("mongodb://localhost:27017/todoListDB", {
+// got this from mongodb atlas
+mongoose.connect("mongodb+srv://admin-Swapnil:Test123@cluster0.spe8uhx.mongodb.net/todoListDB", {
   useNewUrlParser: true
 });
 // const items = ["Buy Food", "Cook Food", "Eat Food"];
